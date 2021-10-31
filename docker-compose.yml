@@ -1,0 +1,45 @@
+---
+version: '3.8'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - bundle:/usr/local/bundle
+      - .:/var/app/api
+    ports:
+      - 3000:3000
+    depends_on:
+      - mysql
+    tty: true
+    stdin_open: true
+
+  api-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["sleep", "infinity"]
+    volumes:
+      - bundle:/usr/local/bundle
+      - .:/var/app/api
+    depends_on:
+      - mysql
+    tty: true
+    stdin_open: true
+
+  mysql:
+    image: mysql:5.7
+    platform: linux/x86_64
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    ports:
+      - 3306:3306
+
+volumes:
+  bundle:
+    driver: local
+  db:
+    driver: local
