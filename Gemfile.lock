@@ -70,6 +70,16 @@ GEM
     ffi (1.15.4)
     globalid (0.5.2)
       activesupport (>= 5.0)
+    google-protobuf (3.19.1)
+    googleapis-common-protos-types (1.3.0)
+      google-protobuf (~> 3.14)
+    grpc (1.41.0)
+      google-protobuf (~> 3.17)
+      googleapis-common-protos-types (~> 1.0)
+    grpc (1.41.0-universal-darwin)
+      google-protobuf (~> 3.17)
+      googleapis-common-protos-types (~> 1.0)
+    grpc-tools (1.41.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     listen (3.7.0)
@@ -152,6 +162,8 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
+  grpc
+  grpc-tools
   listen (~> 3.3)
   mysql2 (~> 0.5)
   puma (~> 5.0)
