@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_10_31_132152) do
     t.bigint "sender_id", null: false
     t.bigint "recipient_id", null: false
     t.text "content", null: false
+    t.datetime "send_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipient_id"], name: "index_messages_on_recipient_id"

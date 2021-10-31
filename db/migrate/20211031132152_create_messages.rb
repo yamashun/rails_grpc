@@ -4,6 +4,7 @@ class CreateMessages < ActiveRecord::Migration[6.1]
       t.bigint :sender_id, null: false
       t.bigint :recipient_id, null: false
       t.text :content, null: false
+      t.datetime :send_at, null: false
 
       t.timestamps
     end
